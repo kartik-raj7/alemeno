@@ -2,21 +2,24 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import courses from '../data/courses'
 import Search from 'antd/es/input/Search';
-import style from '../styles/dashboard.module.scss'
+import style from '../styles/coursespage.module.scss'
 import { List, Row, Space } from 'antd';
 import useCourseSearch from '../hooks/useSearchHook';
 import {motion} from 'framer-motion'
-const Dashboard = () => {
+import CourseList from '../components/Coursespage/CourseList';
+import { axiosGet } from '../services/api/axios';
+const CoursesPage = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.course);
   const {course} = data;
   const [allcourses,setAllCourses] = useState([]);
   const [filteredCourses, searchCourses ] = useCourseSearch();
-  function ApiCall(){
+  async function ApiCall(){
     if(!course){
-     dispatch({ type: 'SET_COURSES', payload:courses  });
+     const coursedata =  await axiosGet('https://mocki.io/v1/32849968-478b-46a0-9d82-85f6b463a8df');
+     dispatch({ type: 'SET_COURSES', payload:coursedata  });
      console.log('action',course);
-     setAllCourses(course);
+     setAllCourses(coursedata);
     }
   }
   function SearchCourse(searchTerm){
@@ -30,17 +33,17 @@ const Dashboard = () => {
       }
   },[course])
   return (
-    <div className={style.dashboard}>
-      <Space>
-      <Row>
-     <Search onChange={(e)=>SearchCourse(e.target.value)} placeholder='Search Courses Here'/>
+    <div className={style.coursespage}>
+      <div className={style.coursesdiv}>
+      <Row className={style.searchcourseinputdiv}>
+     <Search onChange={(e)=>SearchCourse(e.target.value)} placeholder='Search Courses Here' className={style.searchcourseinput}/>
      </Row>
-     <Space>
-    
-     </Space>
-     </Space>
+     <div className={style.courseslist}>
+     <CourseList allcourses={allcourses}/>
+     </div>
+     </div>
     </div>
   )
 }
 
-export default Dashboard
+export default CoursesPage

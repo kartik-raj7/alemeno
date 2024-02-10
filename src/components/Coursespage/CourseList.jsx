@@ -1,10 +1,11 @@
 import { List } from 'antd'
 import React from 'react'
 import {motion} from 'framer-motion'
-import style from '../../styles/dashboard.module.scss'
-const CourseList = (allcourses) => {
+import style from '../../styles/coursespage.module.scss'
+import CourseCard from './CourseCard'
+const CourseList = ({allcourses}) => {
   return (
-    <div>
+    <div className={style.courseslist}>
          <List
         dataSource={allcourses}
         renderItem={(course, index) => (
@@ -24,7 +25,7 @@ const CourseList = (allcourses) => {
           viewport={{ once: true }}
         >
           <List.Item className={style.course}>
-            {course?.name}
+           <CourseCard data={course}/>
           </List.Item>
           </motion.div>
         )}

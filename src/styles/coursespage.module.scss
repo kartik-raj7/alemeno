@@ -1,0 +1,33 @@
+@import './variables.scss';
+.coursespage{
+    @include center-flexbox;
+}
+.coursesdiv{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+.searchcourseinputdiv{
+  width: 100%;
+  @include center-flexbox;
+}
+.searchcourseinput{
+    width: 70%;
+}
+.courseslist{
+    height: 80vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+.courseslist::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  .courseslist {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }

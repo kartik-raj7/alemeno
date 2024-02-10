@@ -10,6 +10,7 @@ const courses = [
     duration: "8 weeks", // Duration of the course
     schedule: "Tuesdays and Thursdays, 6:00 PM - 8:00 PM",
     location: "Online",
+    rating:'4.5',
     prerequisites: ["Basic JavaScript knowledge", "Familiarity with React"],
     syllabus: [
       {
@@ -50,6 +51,7 @@ const courses = [
     duration: "8 weeks", // Duration of the course
     schedule: "Tuesdays and Thursdays, 6:00 PM - 8:00 PM",
     location: "Online",
+    rating:'3.5',
     prerequisites: ["Basic JavaScript knowledge", "Familiarity with React"],
     syllabus: [
       {

@@ -17,7 +17,7 @@ const LoginComponent = () => {
     };
     dispatch({ type: 'SET_USER', payload:LoginDetails  });
     openNotificationWithIcon('success','logged in')
-    navigate('/dashboard')
+    navigate('/viewcourses')
   };
 
   const onFinish = (values) => {

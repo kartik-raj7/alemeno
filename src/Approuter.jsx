@@ -4,6 +4,7 @@ import routes from './routes';
 import { Spin } from 'antd';
 import Navbar from './components/common/Navbar';
 import { useDispatch } from 'react-redux';
+import ErrorPage from './pages/Errorpage';
 
 const AppRouter = () => {
 //   const [isLoggedIn, setisLoggedIn] = useState(localStorage.getItem('user') != null);
@@ -47,6 +48,7 @@ const AppRouter = () => {
             //   }
             //   />
             ))}
+            <Route path='*' element={<ErrorPage/>} /> 
            {/* <Route path='/dashboard' element={(localStorage.getItem('user') != null && !Object.keys(localStorage.getItem('user'))?.length==0) ?<Dashboard />:<Navigate to='/login'/>} /> */}
         </Routes>
       </Suspense>
