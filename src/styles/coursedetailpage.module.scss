@@ -1,0 +1,84 @@
+@import './variables.scss';
+.coursedetailpage{
+ @include center-flexbox;
+}
+.coursedetail{
+    width:80%;
+    @include center-flexbox;
+    flex-direction: column;
+    padding-top: 20px;
+    
+}
+.coursedetailrating{
+    font-weight: bold;
+    font-family: 'Roboto';
+    padding-right: 10px;
+}
+.coursedetailsdiv{
+    display: flex;
+    width: 50%;
+    padding: 10px 0;
+}
+.courseratingdiv{
+    padding: 0 0 20px 0;
+}
+.coursedetails{
+    @include center-flexbox;
+}
+.coursedetailheading{
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'Roboto';
+}
+.coursestatus{
+    padding-left: 45px;
+}
+.courseheadingdiv{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    
+}
+.coursedescriptiondiv{
+    display: flex;
+    width: 60%;
+}
+.coursedescriptionheading{
+    font-weight: bold;
+    font-size: 24px;
+    padding-bottom: 20px;
+    font-family: 'Roboto';
+}
+.courseprerequisites{
+    padding-left: 20px;
+}
+.prerequisites{
+    font-family: 'Roboto';
+    font-weight: 500;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center
+}
+.courseinstructordetail{
+    @include center-flexbox;
+    flex-direction: column;
+    font-family: 'Roboto';
+    border-left: 1px solid grey;
+    justify-content: space-evenly;
+    height: 120px;
+    font-family: 'Roboto';
+}
+.courseoverviewheading{
+    font-weight: bold;
+    padding: 20px 0;
+    font-family: 'Roboto';
+}
+.courseoverviewdiv{
+    width: 80%;
+}
+.courseoverviewdiv{
+    width: 100%;
+}
+.weekdescriptiondiv{
+    @include center-flexbox;
+}

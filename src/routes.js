@@ -24,6 +24,12 @@ const routes = [
     exact: true,
     preload: true,
   },
+  {
+    path: "/mycourses",
+    component: lazy(() => import("./pages/Dashboard")),
+    exact: true,
+    preload: true,
+  },
 ];
 
 export default routes;

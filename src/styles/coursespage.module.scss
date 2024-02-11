@@ -31,3 +31,11 @@
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
   }
+  .courselistitem{
+     width: 80%;
+  }
+  .courselistcardcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

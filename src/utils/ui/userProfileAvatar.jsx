@@ -3,13 +3,13 @@ import { Avatar, Tooltip } from 'antd';
 import { motion } from 'framer-motion';
 import { LogoutOutlined } from '@ant-design/icons';
 import style from '../../styles/homepage.module.scss';
-import { Navigate} from 'react-router-dom';
+import { Link, Navigate} from 'react-router-dom';
 
 const UserProfileAvatar = ({ user }) => {
   const tooltipContent = (
     <div>
       <p>Email- {user.email}</p>
-      <p onClick={Navigate('/mycourses')}>My Courses</p>
+      <Link to='/mycourses'><p >My Courses</p></Link>
       <div className={style.logoutoption}>
         <LogoutOutlined />
         <span className={style.logout}>Logout</span>

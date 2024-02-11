@@ -24,8 +24,10 @@ const CourseList = ({allcourses}) => {
           }}
           viewport={{ once: true }}
         >
-          <List.Item className={style.course}>
+          <List.Item className={style.courselistitem}>
+            
            <CourseCard data={course}/>
+         
           </List.Item>
           </motion.div>
         )}

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import courses from '../data/courses'
 import Search from 'antd/es/input/Search';
 import style from '../styles/coursespage.module.scss'
 import { List, Row, Space } from 'antd';
 import useCourseSearch from '../hooks/useSearchHook';
-import {motion} from 'framer-motion'
 import CourseList from '../components/Coursespage/CourseList';
 import { axiosGet } from '../services/api/axios';
 const CoursesPage = () => {
@@ -16,7 +14,8 @@ const CoursesPage = () => {
   const [filteredCourses, searchCourses ] = useCourseSearch();
   async function ApiCall(){
     if(!course){
-     const coursedata =  await axiosGet('https://mocki.io/v1/32849968-478b-46a0-9d82-85f6b463a8df');
+    console.log('here')
+     const coursedata =  await axiosGet('https://mocki.io/v1/2cfcb266-1ede-4840-aba7-0e369de2125a');
      dispatch({ type: 'SET_COURSES', payload:coursedata  });
      console.log('action',course);
      setAllCourses(coursedata);

@@ -1,0 +1,11 @@
+@import './variables.scss';
+.mycoursescontainer{
+    @include center-flexbox;
+}
+.mycoursesheading{
+    font-size: 30px;
+    @include center-flexbox;
+    width: 100%;
+    padding: 20px 0;
+    font-family: 'Roboto';
+}

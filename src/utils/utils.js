@@ -23,3 +23,18 @@ export const capitalizeFirstLetter = string => {
   export const toInputUppercase = e => {
     e.target.value = ('' + e.target.value).toUpperCase();
   };
+
+  export const courseStatusColor = (status)=>{
+    if(status=="Open"){
+      return {color:"green",background:'#D1FFBD'}
+    }
+    if(status=="Closed"){
+      return {color:"red",background:'#FFA2AD'}
+    }
+    if(status=="InProgress"){
+      return {color:"#F6BE00",background:'white'}
+    }
+  }
+  export const generateRandom = (max,min)=>{
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }

@@ -1,7 +1,17 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 :root{
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: 'Roboto' , sans-serif;
+}
+body{
+  font-family: 'Roboto',sans-serif !important;
 }
 .ant-tooltip-inner {
   color: black !important;
@@ -11,4 +21,9 @@
 
 .ant-tooltip-placement-bottom .ant-tooltip-arrow, .ant-tooltip-placement-bottomLeft .ant-tooltip-arrow, .ant-tooltip-placement-bottomRight .ant-tooltip-arrow {
   border-bottom-color: white !important;
+}
+.card{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
 }
