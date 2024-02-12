@@ -6,6 +6,7 @@ import { List, Row, Space } from 'antd';
 import useCourseSearch from '../hooks/useSearchHook';
 import CourseList from '../components/Coursespage/CourseList';
 import { axiosGet } from '../services/api/axios';
+import { openNotificationWithIcon } from '../utils/utils';
 const CoursesPage = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.course);
@@ -13,12 +14,19 @@ const CoursesPage = () => {
   const [allcourses,setAllCourses] = useState([]);
   const [filteredCourses, searchCourses ] = useCourseSearch();
   async function ApiCall(){
+    try{
     if(!course){
-    console.log('here')
      const coursedata =  await axiosGet('https://mocki.io/v1/2cfcb266-1ede-4840-aba7-0e369de2125a');
+     if(coursedata.length>0){
      dispatch({ type: 'SET_COURSES', payload:coursedata  });
-     console.log('action',course);
      setAllCourses(coursedata);
+     }
+    }
+    else if(course&&course.length>0){
+      setAllCourses(course)
+    }} catch (error){
+       openNotificationWithIcon('error','Something went wrong');
+       setAllCourses([])
     }
   }
   function SearchCourse(searchTerm){
@@ -27,10 +35,7 @@ const CoursesPage = () => {
   }
   useEffect(()=>{
       ApiCall();
-      if(course&&course.length>0){
-        setAllCourses(course)
-      }
-  },[course])
+  },[])
   return (
     <div className={style.coursespage}>
       <div className={style.coursesdiv}>

@@ -11,7 +11,6 @@ import { TbUsersGroup } from "react-icons/tb";
 import CourseSyllabus from './CourseSyllabus';
 
 const Coursedetail = ({courseDetails}) => {
-console.log(courseDetails)
   return (
     <div className={style.coursedetail}>
     <Row className={style.courseheadingdiv}>

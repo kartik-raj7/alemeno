@@ -10,7 +10,6 @@ function useCourseSearch() {
         course.instructor.toLowerCase().includes(term.toLowerCase())
       );
       setFilteredCourses(newfilteredCourses);
-      console.log(filteredCourses)
     };
     const resetSearch = (initialCourses) => {
       setSearchTerm('');

@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const { Option } = Select;
 import {motion} from 'framer-motion'
 import { useDispatch } from "react-redux";
-const LoginComponent = () => {
+const LoginComponent = ({logIn}) => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,7 +16,9 @@ const LoginComponent = () => {
       password: values.password,
     };
     dispatch({ type: 'SET_USER', payload:LoginDetails  });
-    openNotificationWithIcon('success','logged in')
+    localStorage.setItem('user',JSON.stringify(LoginDetails));
+    openNotificationWithIcon('success','logged in');
+    logIn();
     navigate('/viewcourses')
   };
 

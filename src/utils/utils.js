@@ -1,4 +1,5 @@
 import { notification } from "antd";
+import dayjs from 'dayjs';
 
 export const capitalizeFirstLetter = string => {
     return string?.charAt(0)?.toUpperCase() + string?.slice(1);
@@ -38,3 +39,9 @@ export const capitalizeFirstLetter = string => {
   export const generateRandom = (max,min)=>{
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+  
+export function formatDate(dateString) {
+    const dateObject = dayjs(dateString);
+    return dateObject.format("dddd, MMMM DD, YYYY");
+}
+  

@@ -9,3 +9,7 @@
     padding: 20px 0;
     font-family: 'Roboto';
 }
+.mycourseslistdiv{
+    @include center-flexbox;
+    width: 100%;
+}

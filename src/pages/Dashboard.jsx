@@ -1,20 +1,29 @@
 import { Row } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { axiosGet } from '../services/api/axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import CourseList from '../components/Coursespage/CourseList';
 import style from '../styles/dashboard.module.scss'
+import { openNotificationWithIcon } from '../utils/utils';
 const Dashboard = () => {
    const [mycourses,setMyCourses] = useState([]);
+   const {mycourse} = useSelector(state=>state.mycourse);
     const dispatch = useDispatch();
     async function ApiCall(){
-        // if(!course){
-        console.log('here')
-         const coursedata =  await axiosGet('https://mocki.io/v1/04ad809b-248c-4d63-8d4c-6c384188d941');
+        try{
+        if(!mycourse){
+         const coursedata =  await axiosGet('https://mocki.io/v1/9d22f647-f778-4d9e-91ae-ef3c02e5bfbd');
+         if(coursedata.length>0){
          dispatch({ type: 'SET_MY_COURSES', payload:coursedata  });
-         console.log('action',coursedata);
          setMyCourses(coursedata);
-        // }
+         }
+        }
+        else if(mycourse&&mycourse.length>0){
+          setMyCourses(mycourse);
+        }} catch(error){
+           openNotificationWithIcon('error','Something went wrong');
+           setMyCourses([]);
+        }
       }
     useEffect(()=>{
      ApiCall();
@@ -23,7 +32,7 @@ const Dashboard = () => {
     <div className={style.mycoursescontainer}>
     <Row style={{width:'80%'}}>
     <Row className={style.mycoursesheading}>My Courses</Row>
-    <div >
+    <div className={style.mycourseslistdiv}>
     <CourseList allcourses={mycourses}/>
     </div>
     </Row>

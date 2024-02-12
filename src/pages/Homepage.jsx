@@ -3,11 +3,11 @@ import React from 'react'
 import LoginComponent from '../components/Login/LoginComponent'
 import Transition from '../utils/ui/Transition'
 
-const Homepage = () => {
+const Homepage = ({logIn}) => {
   return (
     <div>
          <Transition>
-         <LoginComponent/>
+         <LoginComponent logIn={logIn}/>
          </Transition>
       
     </div>
