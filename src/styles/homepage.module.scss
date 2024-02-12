@@ -8,3 +8,8 @@
 .navbaravatar{
     margin-right: 80px;
 }
+@media (max-width:$tablet-screen) {
+    .navbaravatar{
+        margin-right: 20px;
+    }
+}

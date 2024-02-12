@@ -82,3 +82,25 @@
 .weekdescriptiondiv{
     @include center-flexbox;
 }
+@media (max-width:$tablet-screen){
+    .coursedetailsdiv{
+        width: 90%;
+    }
+    .coursedescriptiondiv{
+        width: 100%;
+    }
+    .courseinstructordetail{
+        border: 1px solid grey;
+        border-radius: 15px;
+        margin-top: 10px;
+    }
+    .coursedetailheading{
+        font-size: 24px;
+    }
+}
+@media (max-width:$mobile-screen){
+    .coursestatus{
+        padding-left: 0;
+        padding-top: 10px;
+    }
+}

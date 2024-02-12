@@ -21,7 +21,7 @@
 .coursename{
     font-weight: 500;
     font-size: 16px;
-    padding: 0;
+    padding-top: 10px;
     font-family: 'Roboto';
 }
 .courseinstructor{
@@ -33,3 +33,20 @@
     justify-content: flex-end;
     align-items: center;
 }
+.markascompletebuttondiv{
+    @include center-flexbox;
+}
+@media(max-width:$mobile-screen){
+    .courseheading{
+        flex-direction: column;
+        align-items: start;
+    }
+    .markascompletebuttondiv{
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .coursename{
+        font-size: 14px;
+    }
+}
+

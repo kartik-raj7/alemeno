@@ -6,6 +6,7 @@ import CourseTag from '../../utils/ui/CourseTag'
 import Avatars from '../../utils/ui/AvatarGroup'
 import { IoIosDoneAll } from "react-icons/io";
 import { formatDate, generateRandom } from '../../utils/utils'
+import { isMobileOnly } from 'react-device-detect'
 
 const CourseCard = ({data}) => {
   const navigate = useNavigate();
@@ -31,27 +32,27 @@ const CourseCard = ({data}) => {
   return (
     <Card onClick={redirectToCourseDetailPage} className={style.courselistcard}>
       <Row className={style.coursecardrow}>
-        <Col span={6}><Image src={data.thumbnail} preview={false}/></Col>
-        <Col span={15} className={style.coursedetails}>
+        <Col xs={24} lg={6}><Image src={data.thumbnail} preview={false}/></Col>
+        <Col xs={24} lg={15} className={style.coursedetails}>
           <Row className={style.courseheading}>
           <div className={style.coursename}>{data.name}</div>
           <div><CourseTag status={data.enrollmentStatus}/></div>
-          {data.progress&&<div><Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }}><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button>
-          <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-          Are you sure you want to mark this course as completed?
-      </Modal>
-          
-          </div>}
+          {!isMobileOnly&&data.progress&&<div className={style.markascompletebuttondiv}><Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }} type='ghost'><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button> </div>}       
           </Row>
           <Row className={style.courseinstructor}>Course Instructor - {data.instructor}</Row>
           <Row className={style.courserating}><Rate allowHalf defaultValue={data.rating} disabled={true}/></Row>
           {data.progress&&<Progress percent={data.progress} status="active" strokeColor={twoColors}/>}
           <Row className={style.courseattendants} style={{justifyContent:data.dueDate&&'space-between'}}>
             {data.progress&&<Col>Due date - {formatDate(data.dueDate)}</Col>}
-            <Col span={5}><Avatars students={generateRandom(10,400)}/></Col>
+            <Col xs={24} md={7} xl={5} style={{display:isMobileOnly&&'flex',flexDirection:isMobileOnly&&'row',justifyContent:'space-between',alignItems:'center'}}><Avatars students={generateRandom(10,400)}/>
+            {isMobileOnly&&data.progress&&<Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }} type='ghost'><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button>}
+            </Col>
             </Row>
         </Col>
       </Row>
+      <Modal title="Mark as Completed" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+          Are you sure you want to mark this course as completed?
+      </Modal>
     </Card>
   )
 }

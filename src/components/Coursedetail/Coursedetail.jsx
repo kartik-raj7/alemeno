@@ -37,7 +37,7 @@ const Coursedetail = ({courseDetails}) => {
     </Row>
     <Divider style={{width:'10px'}}/>
     <Row className={style.coursedescriptiondiv}>
-        <Col span={19}>
+        <Col xs={24} lg={19}>
         <Row className={style.coursedescriptionheading}>Description</Row>
         <Row className={style.prerequisites}><RiToolsFill/>Prerequisites:  
         <CoursePrerequisites prerequisites={courseDetails.prerequisites}/>
@@ -48,7 +48,7 @@ const Coursedetail = ({courseDetails}) => {
         <CourseSyllabus syllabus={courseDetails.syllabus}/>
     </Row>
         </Col>
-        <Col span={5} className={style.courseinstructordetail}>
+        <Col xs={6} lg={5} className={style.courseinstructordetail}>
          <Row>Instructor </Row>
          <Avatar
           src={`https://ui-avatars.com/api/?name=${courseDetails.instructor}`}
