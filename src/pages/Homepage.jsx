@@ -6,10 +6,9 @@ import Transition from '../utils/ui/Transition'
 const Homepage = ({logIn}) => {
   return (
     <div>
-         <Transition>
-         <LoginComponent logIn={logIn}/>
-         </Transition>
-      
+          <Transition>
+         <LoginComponent logIn={logIn}/>    
+        </Transition> 
     </div>
   )
 }

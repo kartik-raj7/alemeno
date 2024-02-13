@@ -7,6 +7,7 @@ import useCourseSearch from '../hooks/useSearchHook';
 import CourseList from '../components/Coursespage/CourseList';
 import { axiosGet } from '../services/api/axios';
 import { openNotificationWithIcon } from '../utils/utils';
+import Transition from '../utils/ui/Transition';
 const CoursesPage = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.course);
@@ -37,6 +38,7 @@ const CoursesPage = () => {
       ApiCall();
   },[])
   return (
+    <Transition>
     <div className={style.coursespage}>
       <div className={style.coursesdiv}>
       <Row className={style.searchcourseinputdiv}>
@@ -47,6 +49,7 @@ const CoursesPage = () => {
      </div>
      </div>
     </div>
+    </Transition>
   )
 }
 

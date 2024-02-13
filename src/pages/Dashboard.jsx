@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import CourseList from '../components/Coursespage/CourseList';
 import style from '../styles/dashboard.module.scss'
 import { openNotificationWithIcon } from '../utils/utils';
+import Transition from '../utils/ui/Transition';
 const Dashboard = () => {
    const [mycourses,setMyCourses] = useState([]);
    const {mycourse} = useSelector(state=>state.mycourse);
@@ -29,6 +30,7 @@ const Dashboard = () => {
      ApiCall();
     },[])
   return (
+    <Transition>
     <div className={style.mycoursescontainer}>
     <Row style={{width:'80%'}}>
     <Row className={style.mycoursesheading}>My Courses</Row>
@@ -37,6 +39,7 @@ const Dashboard = () => {
     </div>
     </Row>
     </div>
+    </Transition>
   )
 }
 

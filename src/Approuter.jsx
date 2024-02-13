@@ -5,6 +5,7 @@ import { Spin } from 'antd';
 import Navbar from './components/common/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import ErrorPage from './pages/Errorpage';
+import './index.css'
 
 const AppRouter = () => {
   const [isLoggedIn, setisLoggedIn] = useState(localStorage.getItem('user') != null);

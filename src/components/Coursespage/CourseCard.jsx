@@ -1,4 +1,4 @@
-import { Button, Card, Col, Image, Modal, Progress, Rate, Row } from 'antd'
+import { Button, Card, Col, Image, Modal, Progress, Rate, Row, Tooltip } from 'antd'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import style from '../../styles/coursecard.module.scss'
@@ -37,7 +37,7 @@ const CourseCard = ({data}) => {
           <Row className={style.courseheading}>
           <div className={style.coursename}>{data.name}</div>
           <div><CourseTag status={data.enrollmentStatus}/></div>
-          {!isMobileOnly&&data.progress&&<div className={style.markascompletebuttondiv}><Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }} type='ghost'><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button> </div>}       
+          {!isMobileOnly&&data.progress&&<div className={style.markascompletebuttondiv}><Tooltip title='Mark course as completed'><Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }} type='ghost'><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button> </Tooltip></div>}       
           </Row>
           <Row className={style.courseinstructor}>Course Instructor - {data.instructor}</Row>
           <Row className={style.courserating}><Rate allowHalf defaultValue={data.rating} disabled={true}/></Row>
@@ -45,7 +45,7 @@ const CourseCard = ({data}) => {
           <Row className={style.courseattendants} style={{justifyContent:data.dueDate&&'space-between'}}>
             {data.progress&&<Col>Due date - {formatDate(data.dueDate)}</Col>}
             <Col xs={24} md={7} xl={5} style={{display:isMobileOnly&&'flex',flexDirection:isMobileOnly&&'row',justifyContent:'space-between',alignItems:'center'}}><Avatars students={generateRandom(10,400)}/>
-            {isMobileOnly&&data.progress&&<Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }} type='ghost'><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button>}
+            {isMobileOnly&&data.progress&&<Tooltip title='Mark course as completed'><Button onClick={(event) => { event.stopPropagation(); markAsCompleted(); }} type='ghost'><IoIosDoneAll style={{color:'green',fontSize:'30px'}}/></Button></Tooltip>}
             </Col>
             </Row>
         </Col>

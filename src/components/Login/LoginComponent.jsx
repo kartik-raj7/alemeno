@@ -32,7 +32,7 @@ const LoginComponent = ({logIn}) => {
   return (
     <div className={style.logindiv}>
       <Row className={style.login}>
-        <Col className={style.loginleft} xs={24} lg={14}>
+        <Col className={style.loginleft} xs={22} lg={14}>
           <motion.img
             src="/homepage.png"
             alt="Moving Image"

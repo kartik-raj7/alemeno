@@ -9,7 +9,7 @@ const UserProfileAvatar = ({ user,logOut }) => {
   const tooltipContent = (
     <div>
       <p>Email- {user.email}</p>
-      <Link to='/mycourses'><p style={{color:'black'}}>My Courses</p></Link>
+      <Link to='/mycourses'><p className={style.mycoursesoption}>My Courses</p></Link>
       <div className={style.logoutoption} onClick={logOut}>
         <LogoutOutlined style={{paddingRight:'5px'}}/>
         <span className={style.logout}>Logout</span>
